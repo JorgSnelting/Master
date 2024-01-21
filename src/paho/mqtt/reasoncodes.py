@@ -187,6 +187,14 @@ class ReasonCodes:
             return self.value < other.value
         return NotImplemented
 
+    def __repr__(self):
+        try:
+            packet_name = PacketTypes.Names[self.packetType]
+        except IndexError:
+            packet_name = "Unknown"
+
+        return f"ReasonCodes({packet_name}, {self.getName()!r})"
+
     def __str__(self):
         return self.getName()
 
