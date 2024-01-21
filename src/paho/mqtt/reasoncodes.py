@@ -195,3 +195,7 @@ class ReasonCodes:
 
     def pack(self):
         return bytearray([self.value])
+
+    @property
+    def is_failure(self) -> bool:
+        return self.value >= 0x80
